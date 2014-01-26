@@ -71,7 +71,7 @@ all:
 	cd dwarfdump && make
 	cd dwarfdump2 && make
 	cd dwarfgen && make
-	cd dwarfexample && make
+#	cd dwarfexample && make
    
 
 clean:
