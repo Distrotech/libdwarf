@@ -78,7 +78,15 @@ clean:
 	sh ./CLEANUP
 
 install: all
-	echo "No install provided, see comments in the README"
+	$(INSTALL) -d $(DESTDIR)$(prefix)/include/libdwarf  $(DESTDIR)$(prefix)/lib $(DESTDIR)$(bindir)
+	$(INSTALL) -m 644 libdwarf/dwarf.h  libdwarf/libdwarf.h $(DESTDIR)$(prefix)/include/libdwarf
+	$(INSTALL) -m 755 dwarfdump2/dwarfdump $(DESTDIR)$(bindir)
+	if [ -e libdwarf/libdwarf.so ];then \
+	  $(INSTALL) -m 755 libdwarf/libdwarf.so $(DESTDIR)$(libdir); \
+	fi;
+	if [ -e libdwarf/libdwarf.a ];then \
+	  $(INSTALL) -m 644 libdwarf/libdwarf.a $(DESTDIR)$(libdir); \
+	fi;
 
 distclean:  clean
 	rm -f dwarfgen/config.status 
