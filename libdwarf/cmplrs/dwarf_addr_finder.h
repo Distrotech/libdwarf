@@ -32,7 +32,7 @@
 /* section is one of the above codes: it specifies a section.
    secoff is the offset in the dwarf section.
    existingAddr is the value at the specified offset (so the
-	called back routine can sanity check the proceedings).
+   called back routine can sanity check the proceedings).
    It's up to the caller to know the size of an address (4 or 8)
    and update the right number of bytes.
 */
@@ -44,10 +44,10 @@ typedef int (*Dwarf_addr_callback_func)   (int /*section*/,
    Once this returns you are done.
    Returns DW_DLV_OK if finished ok.
    Returns DW_DLV_ERROR if there was some kind of error, in which
-	the dwarf error number was passed back thu the dwerr ptr.
+   the dwarf error number was passed back thu the dwerr ptr.
    Returns DW_DLV_NO_ENTRY if there are no relevant dwarf sections,
-	so there were no addresses to be modified (and none
-	called back).
+   so there were no addresses to be modified (and none
+   called back).
 */
 int _dwarf_addr_finder(dwarf_elf_handle elf_file_ptr,
                 Dwarf_addr_callback_func cb_func,
